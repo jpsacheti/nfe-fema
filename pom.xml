@@ -22,5 +22,10 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>RELEASE</version>
+		</dependency>
 	</dependencies>
 </project>
