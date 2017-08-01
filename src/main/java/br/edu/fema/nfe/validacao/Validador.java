@@ -1,7 +1,11 @@
 package br.edu.fema.nfe.validacao;
 
-import br.edu.fema.nfe.xml.TEnviNFe;
+import java.util.List;
 
-public interface Validador {
-    boolean validar(TEnviNFe valor) throws Exception;
+import org.xml.sax.ErrorHandler;
+
+public interface Validador extends ErrorHandler {
+	boolean validar(String valor) throws Exception;
+
+	List<String> listaInconsistencias();
 }
