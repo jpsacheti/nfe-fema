@@ -1,3 +1,16 @@
+/*
+ * Copyright 2017 João Pedro Sacheti
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License athttp://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 //
 // Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
 // Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
@@ -8,20 +21,16 @@
 
 package br.edu.fema.nfe.xml;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 
 /**
  * Tipo Dados do Local de Retirada ou Entrega // 24/10/08 - tamanho mínimo // v2.0
- * 
+ *
  * <p>Classe Java de TLocal complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="TLocal">
  *   &lt;complexContent>
@@ -78,20 +87,20 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TLocal", propOrder = {
-    "cnpj",
-    "cpf",
-    "xLgr",
-    "nro",
-    "xCpl",
-    "xBairro",
-    "cMun",
-    "xMun",
-    "uf"
+        "cnpj",
+        "cpf",
+        "xLgr",
+        "nro",
+        "xCpl",
+        "xBairro",
+        "cMun",
+        "xMun",
+        "uf"
 })
 public class TLocal {
 
@@ -116,11 +125,11 @@ public class TLocal {
 
     /**
      * Obtém o valor da propriedade cnpj.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getCNPJ() {
         return cnpj;
@@ -128,11 +137,11 @@ public class TLocal {
 
     /**
      * Define o valor da propriedade cnpj.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setCNPJ(String value) {
         this.cnpj = value;
@@ -140,11 +149,11 @@ public class TLocal {
 
     /**
      * Obtém o valor da propriedade cpf.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getCPF() {
         return cpf;
@@ -152,11 +161,11 @@ public class TLocal {
 
     /**
      * Define o valor da propriedade cpf.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setCPF(String value) {
         this.cpf = value;
@@ -164,11 +173,11 @@ public class TLocal {
 
     /**
      * Obtém o valor da propriedade xLgr.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getXLgr() {
         return xLgr;
@@ -176,11 +185,11 @@ public class TLocal {
 
     /**
      * Define o valor da propriedade xLgr.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setXLgr(String value) {
         this.xLgr = value;
@@ -188,11 +197,11 @@ public class TLocal {
 
     /**
      * Obtém o valor da propriedade nro.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getNro() {
         return nro;
@@ -200,11 +209,11 @@ public class TLocal {
 
     /**
      * Define o valor da propriedade nro.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setNro(String value) {
         this.nro = value;
@@ -212,11 +221,11 @@ public class TLocal {
 
     /**
      * Obtém o valor da propriedade xCpl.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getXCpl() {
         return xCpl;
@@ -224,11 +233,11 @@ public class TLocal {
 
     /**
      * Define o valor da propriedade xCpl.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setXCpl(String value) {
         this.xCpl = value;
@@ -236,11 +245,11 @@ public class TLocal {
 
     /**
      * Obtém o valor da propriedade xBairro.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getXBairro() {
         return xBairro;
@@ -248,11 +257,11 @@ public class TLocal {
 
     /**
      * Define o valor da propriedade xBairro.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setXBairro(String value) {
         this.xBairro = value;
@@ -260,11 +269,11 @@ public class TLocal {
 
     /**
      * Obtém o valor da propriedade cMun.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getCMun() {
         return cMun;
@@ -272,11 +281,11 @@ public class TLocal {
 
     /**
      * Define o valor da propriedade cMun.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setCMun(String value) {
         this.cMun = value;
@@ -284,11 +293,11 @@ public class TLocal {
 
     /**
      * Obtém o valor da propriedade xMun.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getXMun() {
         return xMun;
@@ -296,11 +305,11 @@ public class TLocal {
 
     /**
      * Define o valor da propriedade xMun.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setXMun(String value) {
         this.xMun = value;
@@ -308,11 +317,11 @@ public class TLocal {
 
     /**
      * Obtém o valor da propriedade uf.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link TUf }
-     *     
+     *
      */
     public TUf getUF() {
         return uf;
@@ -320,11 +329,11 @@ public class TLocal {
 
     /**
      * Define o valor da propriedade uf.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link TUf }
-     *     
+     *
      */
     public void setUF(TUf value) {
         this.uf = value;

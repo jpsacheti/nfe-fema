@@ -1,229 +1,215 @@
+/*
+ * Copyright 2017 João Pedro Sacheti
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License athttp://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package br.edu.fema.nfe.util;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
+import javax.net.ssl.*;
+import java.io.*;
 import java.security.KeyStore;
 import java.security.MessageDigest;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLException;
-import javax.net.ssl.SSLHandshakeException;
-import javax.net.ssl.SSLSocket;
-import javax.net.ssl.SSLSocketFactory;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.TrustManagerFactory;
-import javax.net.ssl.X509TrustManager;
-
 public class GeradorCacerts {
 
-	private static final String JSSECACERTS = "NFeCacerts";
+    private static final String JSSECACERTS = "NFeCacerts";
 
-	private static final int TIMEOUT_WS = 30;
+    private static final int TIMEOUT_WS = 30;
 
-	public static void executarProcesso() {
-		try {
+    public static void executarProcesso() {
+        try {
 
-			char[] passphrase = "changeit".toCharArray();
+            char[] passphrase = "changeit".toCharArray();
 
-			File file = new File(JSSECACERTS);
+            File file = new File(JSSECACERTS);
 
-			if (file.isFile() == false) {
+            if (!file.isFile()) {
 
-				char SEP = File.separatorChar;
+                char SEP = File.separatorChar;
 
-				File dir = new File(System.getProperty("java.home") + SEP + "lib" + SEP + "security");
+                File dir = new File(System.getProperty("java.home") + SEP + "lib" + SEP + "security");
 
-				file = new File(dir, JSSECACERTS);
+                file = new File(dir, JSSECACERTS);
 
-				if (file.isFile() == false) {
+                if (!file.isFile()) {
 
-					file = new File(dir, "cacerts");
+                    file = new File(dir, "cacerts");
 
-				}
+                }
 
-			}
+            }
 
-			info("| Loading KeyStore " + file + "...");
+            info("| Loading KeyStore " + file + "...");
 
-			InputStream in = new FileInputStream(file);
+            InputStream in = new FileInputStream(file);
 
-			KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
+            KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
 
-			ks.load(in, passphrase);
+            ks.load(in, passphrase);
 
-			in.close();
+            in.close();
 
-			get("homnfe.sefaz.am.gov.br", 443, ks);
-			get("hnfe.sefaz.ba.gov.br", 443, ks);
-			get("nfeh.sefaz.ce.gov.br", 443, ks);
-			get("homolog.sefaz.go.gov.br", 443, ks);
-			get("hnfe.fazenda.mg.gov.br", 443, ks);
-			get("homologacao.nfe.ms.gov.br", 443, ks);
-			get("homologacao.sefaz.mt.gov.br", 443, ks);
-			get("nfehomolog.sefaz.pe.gov.br", 443, ks);
-			get("homologacao.nfe2.fazenda.pr.gov.br", 443, ks);
-			get("homologacao.nfe.sefaz.rs.gov.br", 443, ks);
-			get("homologacao.nfe.fazenda.sp.gov.br", 443, ks);
-			get("hom.nfe.fazenda.gov.br", 443, ks);
-			get("hom.sefazvirtual.fazenda.gov.br", 443, ks);
-			get("homologacao.nfe.sefazvirtual.rs.gov.br", 443, ks);
+            get("homnfe.sefaz.am.gov.br", ks);
+            get("hnfe.sefaz.ba.gov.br", ks);
+            get("nfeh.sefaz.ce.gov.br", ks);
+            get("homolog.sefaz.go.gov.br", ks);
+            get("hnfe.fazenda.mg.gov.br", ks);
+            get("homologacao.nfe.ms.gov.br", ks);
+            get("homologacao.sefaz.mt.gov.br", ks);
+            get("nfehomolog.sefaz.pe.gov.br", ks);
+            get("homologacao.nfe2.fazenda.pr.gov.br", ks);
+            get("homologacao.nfe.sefaz.rs.gov.br", ks);
+            get("homologacao.nfe.fazenda.sp.gov.br", ks);
+            get("hom.nfe.fazenda.gov.br", ks);
+            get("hom.sefazvirtual.fazenda.gov.br", ks);
+            get("homologacao.nfe.sefazvirtual.rs.gov.br", ks);
 
-			File cafile = new File(JSSECACERTS);
+            File cafile = new File(JSSECACERTS);
 
-			OutputStream out = new FileOutputStream(cafile);
+            OutputStream out = new FileOutputStream(cafile);
 
-			ks.store(out, passphrase);
+            ks.store(out, passphrase);
 
-			out.close();
-			info("| Done");
+            out.close();
+            info("| Done");
 
-		} catch (Exception e) {
+        } catch (Exception e) {
 
-			e.printStackTrace();
+            e.printStackTrace();
 
-		}
-	}
+        }
+    }
 
-	public static void get(String host, int port, KeyStore ks) throws Exception {
+    private static void get(String host, KeyStore ks) throws Exception {
 
-		SSLContext context = SSLContext.getInstance("TLS");
+        SSLContext context = SSLContext.getInstance("TLS");
 
-		TrustManagerFactory tmf = TrustManagerFactory.getInstance(
+        TrustManagerFactory tmf = TrustManagerFactory.getInstance(
 
-		TrustManagerFactory.getDefaultAlgorithm());
+                TrustManagerFactory.getDefaultAlgorithm());
 
-		tmf.init(ks);
+        tmf.init(ks);
 
-		X509TrustManager defaultTrustManager = (X509TrustManager) tmf.getTrustManagers()[0];
+        X509TrustManager defaultTrustManager = (X509TrustManager) tmf.getTrustManagers()[0];
 
-		SavingTrustManager tm = new SavingTrustManager(defaultTrustManager);
+        SavingTrustManager tm = new SavingTrustManager(defaultTrustManager);
 
-		context.init(null, new TrustManager[] { tm }, null);
+        context.init(null, new TrustManager[] { tm }, null);
 
-		SSLSocketFactory factory = context.getSocketFactory();
+        SSLSocketFactory factory = context.getSocketFactory();
 
-		info("| Opening connection to " + host + ":" + port + "...");
+        info("| Opening connection to " + host + ":" + 443 + "...");
 
-		SSLSocket socket = (SSLSocket) factory.createSocket(host, port);
+        SSLSocket socket = (SSLSocket) factory.createSocket(host, 443);
 
-		socket.setSoTimeout(TIMEOUT_WS * 1000);
+        socket.setSoTimeout(TIMEOUT_WS * 1000);
 
-		try {
+        try {
 
-			info("| Starting SSL handshake...");
+            info("| Starting SSL handshake...");
 
-			socket.startHandshake();
+            socket.startHandshake();
 
-			socket.close();
+            socket.close();
 
-			info("| No errors, certificate is already trusted");
+            info("| No errors, certificate is already trusted");
 
-		} catch (SSLHandshakeException e) {
+        } catch (SSLException e) {
+            e.printStackTrace();
+            error("| " + e.toString());
 
-			/**
-			 * 
-			 * PKIX path building failed:
-			 * 
-			 * sun.security.provider.certpath.SunCertPathBuilderException:
-			 * 
-			 * unable to find valid certification path to requested target
-			 * 
-			 * Nao tratado, pois sempre ocorre essa exceção quando o cacerts
-			 * 
-			 * nao esta gerado.
-			 */
+        }
 
-		} catch (SSLException e) {
-			e.printStackTrace();
-			error("| " + e.toString());
+        X509Certificate[] chain = tm.chain;
 
-		}
+        if (chain == null) {
 
-		X509Certificate[] chain = tm.chain;
+            info("| Could not obtain server certificate chain");
 
-		if (chain == null) {
+        } else {
+            info("| Server sent " + chain.length + " certificate(s):");
+        }
 
-			info("| Could not obtain server certificate chain");
+        MessageDigest sha1 = MessageDigest.getInstance("SHA1");
 
-		}
+        MessageDigest md5 = MessageDigest.getInstance("MD5");
 
-		info("| Server sent " + chain.length + " certificate(s):");
+        for (int i = 0; i < (chain != null ? chain.length : 0); i++) {
 
-		MessageDigest sha1 = MessageDigest.getInstance("SHA1");
+            X509Certificate cert = chain[i];
 
-		MessageDigest md5 = MessageDigest.getInstance("MD5");
+            sha1.update(cert.getEncoded());
 
-		for (int i = 0; i < chain.length; i++) {
+            md5.update(cert.getEncoded());
 
-			X509Certificate cert = chain[i];
+            String alias = host + "-" + (i);
 
-			sha1.update(cert.getEncoded());
+            ks.setCertificateEntry(alias, cert);
 
-			md5.update(cert.getEncoded());
+            info("| Added certificate to keystore '" + JSSECACERTS + "' using alias '" + alias + "'");
 
-			String alias = host + "-" + (i);
+        }
 
-			ks.setCertificateEntry(alias, cert);
+    }
 
-			info("| Added certificate to keystore '" + JSSECACERTS + "' using alias '" + alias + "'");
+    private static void info(String log) {
 
-		}
+        System.out.println("|INFO: " + log);
 
-	}
+    }
 
-	private static class SavingTrustManager implements X509TrustManager {
+    private static void error(String log) {
 
-		private final X509TrustManager tm;
+        System.out.println("|ERROR: " + log);
 
-		private X509Certificate[] chain;
+    }
 
-		SavingTrustManager(X509TrustManager tm) {
+    private static class SavingTrustManager implements X509TrustManager {
 
-			this.tm = tm;
+        private final X509TrustManager tm;
 
-		}
+        private X509Certificate[] chain;
 
-		public X509Certificate[] getAcceptedIssuers() {
+        SavingTrustManager(X509TrustManager tm) {
 
-			return new X509Certificate[0];
+            this.tm = tm;
 
-		}
+        }
 
-		public void checkClientTrusted(X509Certificate[] chain, String authType)
+        public X509Certificate[] getAcceptedIssuers() {
 
-		throws CertificateException {
+            return new X509Certificate[0];
 
-			throw new UnsupportedOperationException();
+        }
 
-		}
+        public void checkClientTrusted(X509Certificate[] chain, String authType)
 
-		public void checkServerTrusted(X509Certificate[] chain, String authType)
+                throws CertificateException {
 
-		throws CertificateException {
+            throw new UnsupportedOperationException();
 
-			this.chain = chain;
+        }
 
-			tm.checkServerTrusted(chain, authType);
+        public void checkServerTrusted(X509Certificate[] chain, String authType)
 
-		}
+                throws CertificateException {
 
-	}
+            this.chain = chain;
 
-	private static void info(String log) {
+            tm.checkServerTrusted(chain, authType);
 
-		System.out.println("|INFO: " + log);
+        }
 
-	}
-
-	private static void error(String log) {
-
-		System.out.println("|ERROR: " + log);
-
-	}
+    }
 
 }

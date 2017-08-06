@@ -1,3 +1,16 @@
+/*
+ * Copyright 2017 João Pedro Sacheti
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License athttp://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 /**
  * NfeAutorizacaoStub.java
  *
@@ -69,7 +82,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
      */
 
     public NfeAutorizacaoStub(org.apache.axis2.context.ConfigurationContext configurationContext,
-            java.lang.String targetEndpoint) throws org.apache.axis2.AxisFault {
+                              java.lang.String targetEndpoint) throws org.apache.axis2.AxisFault {
         this(configurationContext, targetEndpoint, false);
     }
 
@@ -77,7 +90,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
      * Constructor that takes in a configContext and useseperate listner
      */
     public NfeAutorizacaoStub(org.apache.axis2.context.ConfigurationContext configurationContext,
-            java.lang.String targetEndpoint, boolean useSeparateListener)
+                              java.lang.String targetEndpoint, boolean useSeparateListener)
             throws org.apache.axis2.AxisFault {
         // To populate AxisService
         populateAxisService();
@@ -122,20 +135,12 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
         this(null, targetEndpoint);
     }
 
-    /**
-     * Auto generated method signature Transmissão de Lote de NF-e compactado
-     * 
-     * @see kloja.nfe3.ws.NfeAutorizacao#nfeAutorizacaoLoteZip
-     * @param nfeDadosMsgZip1
-     * 
-     * @param nfeCabecMsg2
-     */
+
 
     public NfeAutorizacaoStub.NfeAutorizacaoLoteZipResult nfeAutorizacaoLoteZip(
+            NfeAutorizacaoStub.NfeDadosMsgZip nfeDadosMsgZip1, NfeAutorizacaoStub.NfeCabecMsgE nfeCabecMsg2)
 
-    NfeAutorizacaoStub.NfeDadosMsgZip nfeDadosMsgZip1, NfeAutorizacaoStub.NfeCabecMsgE nfeCabecMsg2)
-
-    throws java.rmi.RemoteException
+            throws java.rmi.RemoteException
 
     {
         org.apache.axis2.context.MessageContext _messageContext = null;
@@ -222,8 +227,8 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
                         java.lang.Class messageClass = java.lang.Class.forName(messageClassName);
                         java.lang.Object messageObject = fromOM(faultElt, messageClass, null);
                         java.lang.reflect.Method m = exceptionClass.getMethod("setFaultMessage",
-                                new java.lang.Class[] { messageClass });
-                        m.invoke(ex, new java.lang.Object[] { messageObject });
+                                messageClass);
+                        m.invoke(ex, messageObject);
 
                         throw new java.rmi.RemoteException(ex.getMessage(), ex);
                     } catch (java.lang.ClassCastException e) {
@@ -264,23 +269,14 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
         }
     }
 
-    /**
-     * Auto generated method signature for Asynchronous Invocations Transmissão
-     * de Lote de NF-e compactado
-     * 
-     * @see kloja.nfe3.ws.NfeAutorizacao#startnfeAutorizacaoLoteZip
-     * @param nfeDadosMsgZip1
-     * 
-     * @param nfeCabecMsg2
-     */
     public void startnfeAutorizacaoLoteZip(
 
-    NfeAutorizacaoStub.NfeDadosMsgZip nfeDadosMsgZip1,
+            NfeAutorizacaoStub.NfeDadosMsgZip nfeDadosMsgZip1,
             NfeAutorizacaoStub.NfeCabecMsgE nfeCabecMsg2,
 
             final NfeAutorizacaoCallbackHandler callback)
 
-    throws java.rmi.RemoteException {
+            throws java.rmi.RemoteException {
 
         org.apache.axis2.client.OperationClient _operationClient = _serviceClient
                 .createClient(_operations[0].getName());
@@ -367,8 +363,8 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
                                 java.lang.Object messageObject = fromOM(faultElt, messageClass,
                                         null);
                                 java.lang.reflect.Method m = exceptionClass.getMethod(
-                                        "setFaultMessage", new java.lang.Class[] { messageClass });
-                                m.invoke(ex, new java.lang.Object[] { messageObject });
+                                        "setFaultMessage", messageClass);
+                                m.invoke(ex, messageObject);
 
                                 callback.receiveErrornfeAutorizacaoLoteZip(new java.rmi.RemoteException(
                                         ex.getMessage(), ex));
@@ -439,20 +435,11 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
 
     }
 
-    /**
-     * Auto generated method signature Transmissão de Lote de NF-e
-     * 
-     * @see kloja.nfe3.ws.NfeAutorizacao#nfeAutorizacaoLote
-     * @param nfeDadosMsg4
-     * 
-     * @param nfeCabecMsg5
-     */
-
     public NfeAutorizacaoStub.NfeAutorizacaoLoteResult nfeAutorizacaoLote(
 
-    NfeAutorizacaoStub.NfeDadosMsg nfeDadosMsg4, NfeAutorizacaoStub.NfeCabecMsgE nfeCabecMsg5)
+            NfeAutorizacaoStub.NfeDadosMsg nfeDadosMsg4, NfeAutorizacaoStub.NfeCabecMsgE nfeCabecMsg5)
 
-    throws java.rmi.RemoteException
+            throws java.rmi.RemoteException
 
     {
         org.apache.axis2.context.MessageContext _messageContext = null;
@@ -539,8 +526,8 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
                         java.lang.Class messageClass = java.lang.Class.forName(messageClassName);
                         java.lang.Object messageObject = fromOM(faultElt, messageClass, null);
                         java.lang.reflect.Method m = exceptionClass.getMethod("setFaultMessage",
-                                new java.lang.Class[] { messageClass });
-                        m.invoke(ex, new java.lang.Object[] { messageObject });
+                                messageClass);
+                        m.invoke(ex, messageObject);
 
                         throw new java.rmi.RemoteException(ex.getMessage(), ex);
                     } catch (java.lang.ClassCastException e) {
@@ -581,22 +568,13 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
         }
     }
 
-    /**
-     * Auto generated method signature for Asynchronous Invocations Transmissão
-     * de Lote de NF-e
-     * 
-     * @see kloja.nfe3.ws.NfeAutorizacao#startnfeAutorizacaoLote
-     * @param nfeDadosMsg4
-     * 
-     * @param nfeCabecMsg5
-     */
     public void startnfeAutorizacaoLote(
 
-    NfeAutorizacaoStub.NfeDadosMsg nfeDadosMsg4, NfeAutorizacaoStub.NfeCabecMsgE nfeCabecMsg5,
+            NfeAutorizacaoStub.NfeDadosMsg nfeDadosMsg4, NfeAutorizacaoStub.NfeCabecMsgE nfeCabecMsg5,
 
-    final NfeAutorizacaoCallbackHandler callback)
+            final NfeAutorizacaoCallbackHandler callback)
 
-    throws java.rmi.RemoteException {
+            throws java.rmi.RemoteException {
 
         org.apache.axis2.client.OperationClient _operationClient = _serviceClient
                 .createClient(_operations[1].getName());
@@ -683,8 +661,8 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
                                 java.lang.Object messageObject = fromOM(faultElt, messageClass,
                                         null);
                                 java.lang.reflect.Method m = exceptionClass.getMethod(
-                                        "setFaultMessage", new java.lang.Class[] { messageClass });
-                                m.invoke(ex, new java.lang.Object[] { messageObject });
+                                        "setFaultMessage", messageClass);
+                                m.invoke(ex, messageObject);
 
                                 callback.receiveErrornfeAutorizacaoLote(new java.rmi.RemoteException(
                                         ex.getMessage(), ex));
@@ -784,6 +762,175 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
         return false;
     }
 
+    private org.apache.axiom.om.OMElement toOM(NfeAutorizacaoStub.NfeDadosMsgZip param,
+                                               boolean optimizeContent) throws org.apache.axis2.AxisFault {
+
+        try {
+            return param.getOMElement(NfeAutorizacaoStub.NfeDadosMsgZip.MY_QNAME,
+                    org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+
+    }
+
+    private org.apache.axiom.om.OMElement toOM(NfeAutorizacaoStub.NfeCabecMsgE param,
+                                               boolean optimizeContent) throws org.apache.axis2.AxisFault {
+
+        try {
+            return param.getOMElement(NfeAutorizacaoStub.NfeCabecMsgE.MY_QNAME,
+                    org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+
+    }
+
+    private org.apache.axiom.om.OMElement toOM(NfeAutorizacaoStub.NfeDadosMsg param,
+                                               boolean optimizeContent) throws org.apache.axis2.AxisFault {
+
+        try {
+            return param.getOMElement(NfeAutorizacaoStub.NfeDadosMsg.MY_QNAME,
+                    org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+
+    }
+
+    private org.apache.axiom.om.OMElement toOM(NfeAutorizacaoStub.NfeAutorizacaoLoteResult param,
+                                               boolean optimizeContent) throws org.apache.axis2.AxisFault {
+
+        try {
+            return param.getOMElement(NfeAutorizacaoStub.NfeAutorizacaoLoteResult.MY_QNAME,
+                    org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+
+    }
+
+    private java.lang.Object fromOM(org.apache.axiom.om.OMElement param, java.lang.Class type,
+                                    java.util.Map extraNamespaces) throws org.apache.axis2.AxisFault {
+
+        try {
+
+            if (NfeAutorizacaoStub.NfeDadosMsgZip.class.equals(type)) {
+
+                return NfeAutorizacaoStub.NfeDadosMsgZip.Factory.parse(param
+                        .getXMLStreamReaderWithoutCaching());
+
+            }
+
+            if (NfeAutorizacaoStub.NfeAutorizacaoLoteZipResult.class.equals(type)) {
+
+                return NfeAutorizacaoStub.NfeAutorizacaoLoteZipResult.Factory.parse(param
+                        .getXMLStreamReaderWithoutCaching());
+
+            }
+
+            if (NfeAutorizacaoStub.NfeCabecMsgE.class.equals(type)) {
+
+                return NfeAutorizacaoStub.NfeCabecMsgE.Factory.parse(param
+                        .getXMLStreamReaderWithoutCaching());
+
+            }
+
+            if (NfeAutorizacaoStub.NfeCabecMsgE.class.equals(type)) {
+
+                return NfeAutorizacaoStub.NfeCabecMsgE.Factory.parse(param
+                        .getXMLStreamReaderWithoutCaching());
+
+            }
+
+            if (NfeAutorizacaoStub.NfeDadosMsg.class.equals(type)) {
+
+                return NfeAutorizacaoStub.NfeDadosMsg.Factory.parse(param
+                        .getXMLStreamReaderWithoutCaching());
+
+            }
+
+            if (NfeAutorizacaoStub.NfeAutorizacaoLoteResult.class.equals(type)) {
+
+                return NfeAutorizacaoStub.NfeAutorizacaoLoteResult.Factory.parse(param
+                        .getXMLStreamReaderWithoutCaching());
+
+            }
+
+            if (NfeAutorizacaoStub.NfeCabecMsgE.class.equals(type)) {
+
+                return NfeAutorizacaoStub.NfeCabecMsgE.Factory.parse(param
+                        .getXMLStreamReaderWithoutCaching());
+
+            }
+
+            if (NfeAutorizacaoStub.NfeCabecMsgE.class.equals(type)) {
+
+                return NfeAutorizacaoStub.NfeCabecMsgE.Factory.parse(param
+                        .getXMLStreamReaderWithoutCaching());
+
+            }
+
+        } catch (java.lang.Exception e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+        return null;
+    }
+
+    private org.apache.axiom.om.OMElement toOM(
+            NfeAutorizacaoStub.NfeAutorizacaoLoteZipResult param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+        try {
+            return param.getOMElement(NfeAutorizacaoStub.NfeAutorizacaoLoteZipResult.MY_QNAME,
+                    org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+
+    }
+
+    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(
+            org.apache.axiom.soap.SOAPFactory factory, NfeAutorizacaoStub.NfeDadosMsgZip param,
+            boolean optimizeContent, javax.xml.namespace.QName methodQName)
+            throws org.apache.axis2.AxisFault {
+
+        try {
+
+            org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
+            emptyEnvelope.getBody().addChild(
+                    param.getOMElement(NfeAutorizacaoStub.NfeDadosMsgZip.MY_QNAME, factory));
+            return emptyEnvelope;
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+
+    }
+
+    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(
+            org.apache.axiom.soap.SOAPFactory factory, NfeAutorizacaoStub.NfeDadosMsg param,
+            boolean optimizeContent, javax.xml.namespace.QName methodQName)
+            throws org.apache.axis2.AxisFault {
+
+        try {
+
+            org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
+            emptyEnvelope.getBody().addChild(
+                    param.getOMElement(NfeAutorizacaoStub.NfeDadosMsg.MY_QNAME, factory));
+            return emptyEnvelope;
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+
+    }
+
+    /**
+     * get the default envelope
+     */
+    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory) {
+        return factory.getDefaultEnvelope();
+    }
+
     // https://homologacao.nfe.fazenda.sp.gov.br/ws/nfeautorizacao.asmx
     public static class NfeAutorizacaoLoteZipResult implements org.apache.axis2.databinding.ADBBean {
 
@@ -799,7 +946,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
 
         /**
          * Auto generated getter method
-         * 
+         *
          * @return org.apache.axiom.om.OMElement
          */
         public org.apache.axiom.om.OMElement getExtraElement() {
@@ -808,7 +955,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
 
         /**
          * Auto generated setter method
-         * 
+         *
          * @param param
          *            ExtraElement
          */
@@ -836,16 +983,14 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
         }
 
         public void serialize(final javax.xml.namespace.QName parentQName,
-                javax.xml.stream.XMLStreamWriter xmlWriter)
-                throws javax.xml.stream.XMLStreamException,
-                org.apache.axis2.databinding.ADBException {
+                              javax.xml.stream.XMLStreamWriter xmlWriter)
+                throws javax.xml.stream.XMLStreamException {
             serialize(parentQName, xmlWriter, false);
         }
 
         public void serialize(final javax.xml.namespace.QName parentQName,
-                javax.xml.stream.XMLStreamWriter xmlWriter, boolean serializeType)
-                throws javax.xml.stream.XMLStreamException,
-                org.apache.axis2.databinding.ADBException {
+                              javax.xml.stream.XMLStreamWriter xmlWriter, boolean serializeType)
+                throws javax.xml.stream.XMLStreamException {
 
             java.lang.String prefix = null;
             java.lang.String namespace = null;
@@ -889,7 +1034,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          * Utility method to write an element start tag.
          */
         private void writeStartElement(java.lang.String prefix, java.lang.String namespace,
-                java.lang.String localPart, javax.xml.stream.XMLStreamWriter xmlWriter)
+                                       java.lang.String localPart, javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
             java.lang.String writerPrefix = xmlWriter.getPrefix(namespace);
             if (writerPrefix != null) {
@@ -911,8 +1056,8 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          * Util method to write an attribute with the ns prefix
          */
         private void writeAttribute(java.lang.String prefix, java.lang.String namespace,
-                java.lang.String attName, java.lang.String attValue,
-                javax.xml.stream.XMLStreamWriter xmlWriter)
+                                    java.lang.String attName, java.lang.String attValue,
+                                    javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
             if (xmlWriter.getPrefix(namespace) == null) {
                 xmlWriter.writeNamespace(prefix, namespace);
@@ -925,7 +1070,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          * Util method to write an attribute without the ns prefix
          */
         private void writeAttribute(java.lang.String namespace, java.lang.String attName,
-                java.lang.String attValue, javax.xml.stream.XMLStreamWriter xmlWriter)
+                                    java.lang.String attValue, javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
             if (namespace.equals("")) {
                 xmlWriter.writeAttribute(attName, attValue);
@@ -939,7 +1084,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          * Util method to write an attribute without the ns prefix
          */
         private void writeQNameAttribute(java.lang.String namespace, java.lang.String attName,
-                javax.xml.namespace.QName qname, javax.xml.stream.XMLStreamWriter xmlWriter)
+                                         javax.xml.namespace.QName qname, javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
 
             java.lang.String attributeNamespace = qname.getNamespaceURI();
@@ -967,7 +1112,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          */
 
         private void writeQName(javax.xml.namespace.QName qname,
-                javax.xml.stream.XMLStreamWriter xmlWriter)
+                                javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
             java.lang.String namespaceURI = qname.getNamespaceURI();
             if (namespaceURI != null) {
@@ -982,7 +1127,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
                     xmlWriter.writeCharacters(prefix
                             + ":"
                             + org.apache.axis2.databinding.utils.ConverterUtil
-                                    .convertToString(qname));
+                            .convertToString(qname));
                 } else {
                     // i.e this is the default namespace
                     xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil
@@ -996,7 +1141,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
         }
 
         private void writeQNames(javax.xml.namespace.QName[] qnames,
-                javax.xml.stream.XMLStreamWriter xmlWriter)
+                                 javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
 
             if (qnames != null) {
@@ -1044,7 +1189,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          * Register a namespace prefix
          */
         private java.lang.String registerPrefix(javax.xml.stream.XMLStreamWriter xmlWriter,
-                java.lang.String namespace) throws javax.xml.stream.XMLStreamException {
+                                                java.lang.String namespace) throws javax.xml.stream.XMLStreamException {
             java.lang.String prefix = xmlWriter.getPrefix(namespace);
             if (prefix == null) {
                 prefix = generatePrefix(namespace);
@@ -1195,7 +1340,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
     public static class ExtensionMapper {
 
         public static java.lang.Object getTypeObject(java.lang.String namespaceURI,
-                java.lang.String typeName, javax.xml.stream.XMLStreamReader reader)
+                                                     java.lang.String typeName, javax.xml.stream.XMLStreamReader reader)
                 throws java.lang.Exception {
 
             if ("http://www.portalfiscal.inf.br/nfe/wsdl/NfeAutorizacao".equals(namespaceURI)
@@ -1225,7 +1370,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
 
         /**
          * Auto generated getter method
-         * 
+         *
          * @return org.apache.axiom.om.OMElement
          */
         public org.apache.axiom.om.OMElement getExtraElement() {
@@ -1234,7 +1379,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
 
         /**
          * Auto generated setter method
-         * 
+         *
          * @param param
          *            ExtraElement
          */
@@ -1262,16 +1407,14 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
         }
 
         public void serialize(final javax.xml.namespace.QName parentQName,
-                javax.xml.stream.XMLStreamWriter xmlWriter)
-                throws javax.xml.stream.XMLStreamException,
-                org.apache.axis2.databinding.ADBException {
+                              javax.xml.stream.XMLStreamWriter xmlWriter)
+                throws javax.xml.stream.XMLStreamException {
             serialize(parentQName, xmlWriter, false);
         }
 
         public void serialize(final javax.xml.namespace.QName parentQName,
-                javax.xml.stream.XMLStreamWriter xmlWriter, boolean serializeType)
-                throws javax.xml.stream.XMLStreamException,
-                org.apache.axis2.databinding.ADBException {
+                              javax.xml.stream.XMLStreamWriter xmlWriter, boolean serializeType)
+                throws javax.xml.stream.XMLStreamException {
 
             java.lang.String prefix = null;
             java.lang.String namespace = null;
@@ -1315,7 +1458,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          * Utility method to write an element start tag.
          */
         private void writeStartElement(java.lang.String prefix, java.lang.String namespace,
-                java.lang.String localPart, javax.xml.stream.XMLStreamWriter xmlWriter)
+                                       java.lang.String localPart, javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
             java.lang.String writerPrefix = xmlWriter.getPrefix(namespace);
             if (writerPrefix != null) {
@@ -1337,8 +1480,8 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          * Util method to write an attribute with the ns prefix
          */
         private void writeAttribute(java.lang.String prefix, java.lang.String namespace,
-                java.lang.String attName, java.lang.String attValue,
-                javax.xml.stream.XMLStreamWriter xmlWriter)
+                                    java.lang.String attName, java.lang.String attValue,
+                                    javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
             if (xmlWriter.getPrefix(namespace) == null) {
                 xmlWriter.writeNamespace(prefix, namespace);
@@ -1351,7 +1494,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          * Util method to write an attribute without the ns prefix
          */
         private void writeAttribute(java.lang.String namespace, java.lang.String attName,
-                java.lang.String attValue, javax.xml.stream.XMLStreamWriter xmlWriter)
+                                    java.lang.String attValue, javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
             if (namespace.equals("")) {
                 xmlWriter.writeAttribute(attName, attValue);
@@ -1365,7 +1508,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          * Util method to write an attribute without the ns prefix
          */
         private void writeQNameAttribute(java.lang.String namespace, java.lang.String attName,
-                javax.xml.namespace.QName qname, javax.xml.stream.XMLStreamWriter xmlWriter)
+                                         javax.xml.namespace.QName qname, javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
 
             java.lang.String attributeNamespace = qname.getNamespaceURI();
@@ -1393,7 +1536,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          */
 
         private void writeQName(javax.xml.namespace.QName qname,
-                javax.xml.stream.XMLStreamWriter xmlWriter)
+                                javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
             java.lang.String namespaceURI = qname.getNamespaceURI();
             if (namespaceURI != null) {
@@ -1408,7 +1551,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
                     xmlWriter.writeCharacters(prefix
                             + ":"
                             + org.apache.axis2.databinding.utils.ConverterUtil
-                                    .convertToString(qname));
+                            .convertToString(qname));
                 } else {
                     // i.e this is the default namespace
                     xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil
@@ -1422,7 +1565,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
         }
 
         private void writeQNames(javax.xml.namespace.QName[] qnames,
-                javax.xml.stream.XMLStreamWriter xmlWriter)
+                                 javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
 
             if (qnames != null) {
@@ -1470,7 +1613,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          * Register a namespace prefix
          */
         private java.lang.String registerPrefix(javax.xml.stream.XMLStreamWriter xmlWriter,
-                java.lang.String namespace) throws javax.xml.stream.XMLStreamException {
+                                                java.lang.String namespace) throws javax.xml.stream.XMLStreamException {
             java.lang.String prefix = xmlWriter.getPrefix(namespace);
             if (prefix == null) {
                 prefix = generatePrefix(namespace);
@@ -1631,7 +1774,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
 
         /**
          * Auto generated getter method
-         * 
+         *
          * @return java.lang.String
          */
         public java.lang.String getNfeDadosMsgZip() {
@@ -1640,7 +1783,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
 
         /**
          * Auto generated setter method
-         * 
+         *
          * @param param
          *            NfeDadosMsgZip
          */
@@ -1668,16 +1811,14 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
         }
 
         public void serialize(final javax.xml.namespace.QName parentQName,
-                javax.xml.stream.XMLStreamWriter xmlWriter)
-                throws javax.xml.stream.XMLStreamException,
-                org.apache.axis2.databinding.ADBException {
+                              javax.xml.stream.XMLStreamWriter xmlWriter)
+                throws javax.xml.stream.XMLStreamException {
             serialize(parentQName, xmlWriter, false);
         }
 
         public void serialize(final javax.xml.namespace.QName parentQName,
-                javax.xml.stream.XMLStreamWriter xmlWriter, boolean serializeType)
-                throws javax.xml.stream.XMLStreamException,
-                org.apache.axis2.databinding.ADBException {
+                              javax.xml.stream.XMLStreamWriter xmlWriter, boolean serializeType)
+                throws javax.xml.stream.XMLStreamException {
 
             // We can safely assume an element has only one type associated with
             // it
@@ -1726,7 +1867,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          * Utility method to write an element start tag.
          */
         private void writeStartElement(java.lang.String prefix, java.lang.String namespace,
-                java.lang.String localPart, javax.xml.stream.XMLStreamWriter xmlWriter)
+                                       java.lang.String localPart, javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
             java.lang.String writerPrefix = xmlWriter.getPrefix(namespace);
             if (writerPrefix != null) {
@@ -1748,8 +1889,8 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          * Util method to write an attribute with the ns prefix
          */
         private void writeAttribute(java.lang.String prefix, java.lang.String namespace,
-                java.lang.String attName, java.lang.String attValue,
-                javax.xml.stream.XMLStreamWriter xmlWriter)
+                                    java.lang.String attName, java.lang.String attValue,
+                                    javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
             if (xmlWriter.getPrefix(namespace) == null) {
                 xmlWriter.writeNamespace(prefix, namespace);
@@ -1762,7 +1903,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          * Util method to write an attribute without the ns prefix
          */
         private void writeAttribute(java.lang.String namespace, java.lang.String attName,
-                java.lang.String attValue, javax.xml.stream.XMLStreamWriter xmlWriter)
+                                    java.lang.String attValue, javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
             if (namespace.equals("")) {
                 xmlWriter.writeAttribute(attName, attValue);
@@ -1776,7 +1917,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          * Util method to write an attribute without the ns prefix
          */
         private void writeQNameAttribute(java.lang.String namespace, java.lang.String attName,
-                javax.xml.namespace.QName qname, javax.xml.stream.XMLStreamWriter xmlWriter)
+                                         javax.xml.namespace.QName qname, javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
 
             java.lang.String attributeNamespace = qname.getNamespaceURI();
@@ -1804,7 +1945,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          */
 
         private void writeQName(javax.xml.namespace.QName qname,
-                javax.xml.stream.XMLStreamWriter xmlWriter)
+                                javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
             java.lang.String namespaceURI = qname.getNamespaceURI();
             if (namespaceURI != null) {
@@ -1819,7 +1960,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
                     xmlWriter.writeCharacters(prefix
                             + ":"
                             + org.apache.axis2.databinding.utils.ConverterUtil
-                                    .convertToString(qname));
+                            .convertToString(qname));
                 } else {
                     // i.e this is the default namespace
                     xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil
@@ -1833,7 +1974,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
         }
 
         private void writeQNames(javax.xml.namespace.QName[] qnames,
-                javax.xml.stream.XMLStreamWriter xmlWriter)
+                                 javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
 
             if (qnames != null) {
@@ -1881,7 +2022,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          * Register a namespace prefix
          */
         private java.lang.String registerPrefix(javax.xml.stream.XMLStreamWriter xmlWriter,
-                java.lang.String namespace) throws javax.xml.stream.XMLStreamException {
+                                                java.lang.String namespace) throws javax.xml.stream.XMLStreamException {
             java.lang.String prefix = xmlWriter.getPrefix(namespace);
             if (prefix == null) {
                 prefix = generatePrefix(namespace);
@@ -1955,8 +2096,8 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
 
                             if (reader.isStartElement()
                                     && new javax.xml.namespace.QName(
-                                            "http://www.portalfiscal.inf.br/nfe/wsdl/NfeAutorizacao",
-                                            "nfeDadosMsgZip").equals(reader.getName())) {
+                                    "http://www.portalfiscal.inf.br/nfe/wsdl/NfeAutorizacao",
+                                    "nfeDadosMsgZip").equals(reader.getName())) {
 
                                 nillableValue = reader.getAttributeValue(
                                         "http://www.w3.org/2001/XMLSchema-instance", "nil");
@@ -1995,6 +2136,8 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
 
     }
 
+    /* methods to provide back word compatibility */
+
     public static class NfeCabecMsg implements org.apache.axis2.databinding.ADBBean {
         /*
          * This type was generated from the piece of schema that had name =
@@ -2022,7 +2165,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
 
         /**
          * Auto generated getter method
-         * 
+         *
          * @return java.lang.String
          */
         public java.lang.String getCUF() {
@@ -2031,7 +2174,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
 
         /**
          * Auto generated setter method
-         * 
+         *
          * @param param
          *            CUF
          */
@@ -2061,7 +2204,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
 
         /**
          * Auto generated getter method
-         * 
+         *
          * @return java.lang.String
          */
         public java.lang.String getVersaoDados() {
@@ -2070,7 +2213,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
 
         /**
          * Auto generated setter method
-         * 
+         *
          * @param param
          *            VersaoDados
          */
@@ -2089,7 +2232,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
 
         /**
          * Auto generated getter method
-         * 
+         *
          * @return org.apache.axiom.om.OMAttribute[]
          */
         public org.apache.axiom.om.OMAttribute[] getExtraAttributes() {
@@ -2113,7 +2256,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
 
         /**
          * Auto generated setter method
-         * 
+         *
          * @param param
          *            ExtraAttributes
          */
@@ -2126,7 +2269,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
 
         /**
          * Auto generated add method for the array for convenience
-         * 
+         *
          * @param param
          *            org.apache.axiom.om.OMAttribute
          */
@@ -2161,16 +2304,14 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
         }
 
         public void serialize(final javax.xml.namespace.QName parentQName,
-                javax.xml.stream.XMLStreamWriter xmlWriter)
-                throws javax.xml.stream.XMLStreamException,
-                org.apache.axis2.databinding.ADBException {
+                              javax.xml.stream.XMLStreamWriter xmlWriter)
+                throws javax.xml.stream.XMLStreamException {
             serialize(parentQName, xmlWriter, false);
         }
 
         public void serialize(final javax.xml.namespace.QName parentQName,
-                javax.xml.stream.XMLStreamWriter xmlWriter, boolean serializeType)
-                throws javax.xml.stream.XMLStreamException,
-                org.apache.axis2.databinding.ADBException {
+                              javax.xml.stream.XMLStreamWriter xmlWriter, boolean serializeType)
+                throws javax.xml.stream.XMLStreamException {
 
             java.lang.String prefix = null;
             java.lang.String namespace = null;
@@ -2250,7 +2391,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          * Utility method to write an element start tag.
          */
         private void writeStartElement(java.lang.String prefix, java.lang.String namespace,
-                java.lang.String localPart, javax.xml.stream.XMLStreamWriter xmlWriter)
+                                       java.lang.String localPart, javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
             java.lang.String writerPrefix = xmlWriter.getPrefix(namespace);
             if (writerPrefix != null) {
@@ -2272,8 +2413,8 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          * Util method to write an attribute with the ns prefix
          */
         private void writeAttribute(java.lang.String prefix, java.lang.String namespace,
-                java.lang.String attName, java.lang.String attValue,
-                javax.xml.stream.XMLStreamWriter xmlWriter)
+                                    java.lang.String attName, java.lang.String attValue,
+                                    javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
             if (xmlWriter.getPrefix(namespace) == null) {
                 xmlWriter.writeNamespace(prefix, namespace);
@@ -2286,7 +2427,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          * Util method to write an attribute without the ns prefix
          */
         private void writeAttribute(java.lang.String namespace, java.lang.String attName,
-                java.lang.String attValue, javax.xml.stream.XMLStreamWriter xmlWriter)
+                                    java.lang.String attValue, javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
             if (namespace.equals("")) {
                 xmlWriter.writeAttribute(attName, attValue);
@@ -2300,7 +2441,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          * Util method to write an attribute without the ns prefix
          */
         private void writeQNameAttribute(java.lang.String namespace, java.lang.String attName,
-                javax.xml.namespace.QName qname, javax.xml.stream.XMLStreamWriter xmlWriter)
+                                         javax.xml.namespace.QName qname, javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
 
             java.lang.String attributeNamespace = qname.getNamespaceURI();
@@ -2328,7 +2469,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          */
 
         private void writeQName(javax.xml.namespace.QName qname,
-                javax.xml.stream.XMLStreamWriter xmlWriter)
+                                javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
             java.lang.String namespaceURI = qname.getNamespaceURI();
             if (namespaceURI != null) {
@@ -2343,7 +2484,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
                     xmlWriter.writeCharacters(prefix
                             + ":"
                             + org.apache.axis2.databinding.utils.ConverterUtil
-                                    .convertToString(qname));
+                            .convertToString(qname));
                 } else {
                     // i.e this is the default namespace
                     xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil
@@ -2357,7 +2498,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
         }
 
         private void writeQNames(javax.xml.namespace.QName[] qnames,
-                javax.xml.stream.XMLStreamWriter xmlWriter)
+                                 javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
 
             if (qnames != null) {
@@ -2405,7 +2546,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          * Register a namespace prefix
          */
         private java.lang.String registerPrefix(javax.xml.stream.XMLStreamWriter xmlWriter,
-                java.lang.String namespace) throws javax.xml.stream.XMLStreamException {
+                                                java.lang.String namespace) throws javax.xml.stream.XMLStreamException {
             java.lang.String prefix = xmlWriter.getPrefix(namespace);
             if (prefix == null) {
                 prefix = generatePrefix(namespace);
@@ -2534,7 +2675,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
                             org.apache.axiom.om.OMFactory factory = org.apache.axiom.om.OMAbstractFactory
                                     .getOMFactory();
                             org.apache.axiom.om.OMAttribute attr = factory.createOMAttribute(reader
-                                    .getAttributeLocalName(i), factory.createOMNamespace(
+                                            .getAttributeLocalName(i), factory.createOMNamespace(
                                     reader.getAttributeNamespace(i), reader.getAttributePrefix(i)),
                                     reader.getAttributeValue(i));
 
@@ -2552,8 +2693,8 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
 
                     if (reader.isStartElement()
                             && new javax.xml.namespace.QName(
-                                    "http://www.portalfiscal.inf.br/nfe/wsdl/NfeAutorizacao", "cUF")
-                                    .equals(reader.getName())) {
+                            "http://www.portalfiscal.inf.br/nfe/wsdl/NfeAutorizacao", "cUF")
+                            .equals(reader.getName())) {
 
                         nillableValue = reader.getAttributeValue(
                                 "http://www.w3.org/2001/XMLSchema-instance", "nil");
@@ -2580,8 +2721,8 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
 
                     if (reader.isStartElement()
                             && new javax.xml.namespace.QName(
-                                    "http://www.portalfiscal.inf.br/nfe/wsdl/NfeAutorizacao",
-                                    "versaoDados").equals(reader.getName())) {
+                            "http://www.portalfiscal.inf.br/nfe/wsdl/NfeAutorizacao",
+                            "versaoDados").equals(reader.getName())) {
 
                         nillableValue = reader.getAttributeValue(
                                 "http://www.w3.org/2001/XMLSchema-instance", "nil");
@@ -2623,6 +2764,8 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
 
     }
 
+    /* methods to provide back word compatibility */
+
     public static class NfeDadosMsg implements org.apache.axis2.databinding.ADBBean {
 
         public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
@@ -2636,7 +2779,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
 
         /**
          * Auto generated getter method
-         * 
+         *
          * @return org.apache.axiom.om.OMElement
          */
         public org.apache.axiom.om.OMElement getExtraElement() {
@@ -2645,7 +2788,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
 
         /**
          * Auto generated setter method
-         * 
+         *
          * @param param
          *            ExtraElement
          */
@@ -2673,16 +2816,14 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
         }
 
         public void serialize(final javax.xml.namespace.QName parentQName,
-                javax.xml.stream.XMLStreamWriter xmlWriter)
-                throws javax.xml.stream.XMLStreamException,
-                org.apache.axis2.databinding.ADBException {
+                              javax.xml.stream.XMLStreamWriter xmlWriter)
+                throws javax.xml.stream.XMLStreamException {
             serialize(parentQName, xmlWriter, false);
         }
 
         public void serialize(final javax.xml.namespace.QName parentQName,
-                javax.xml.stream.XMLStreamWriter xmlWriter, boolean serializeType)
-                throws javax.xml.stream.XMLStreamException,
-                org.apache.axis2.databinding.ADBException {
+                              javax.xml.stream.XMLStreamWriter xmlWriter, boolean serializeType)
+                throws javax.xml.stream.XMLStreamException {
 
             java.lang.String prefix = null;
             java.lang.String namespace = null;
@@ -2726,7 +2867,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          * Utility method to write an element start tag.
          */
         private void writeStartElement(java.lang.String prefix, java.lang.String namespace,
-                java.lang.String localPart, javax.xml.stream.XMLStreamWriter xmlWriter)
+                                       java.lang.String localPart, javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
             java.lang.String writerPrefix = xmlWriter.getPrefix(namespace);
             if (writerPrefix != null) {
@@ -2748,8 +2889,8 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          * Util method to write an attribute with the ns prefix
          */
         private void writeAttribute(java.lang.String prefix, java.lang.String namespace,
-                java.lang.String attName, java.lang.String attValue,
-                javax.xml.stream.XMLStreamWriter xmlWriter)
+                                    java.lang.String attName, java.lang.String attValue,
+                                    javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
             if (xmlWriter.getPrefix(namespace) == null) {
                 xmlWriter.writeNamespace(prefix, namespace);
@@ -2762,7 +2903,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          * Util method to write an attribute without the ns prefix
          */
         private void writeAttribute(java.lang.String namespace, java.lang.String attName,
-                java.lang.String attValue, javax.xml.stream.XMLStreamWriter xmlWriter)
+                                    java.lang.String attValue, javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
             if (namespace.equals("")) {
                 xmlWriter.writeAttribute(attName, attValue);
@@ -2776,7 +2917,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          * Util method to write an attribute without the ns prefix
          */
         private void writeQNameAttribute(java.lang.String namespace, java.lang.String attName,
-                javax.xml.namespace.QName qname, javax.xml.stream.XMLStreamWriter xmlWriter)
+                                         javax.xml.namespace.QName qname, javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
 
             java.lang.String attributeNamespace = qname.getNamespaceURI();
@@ -2804,7 +2945,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          */
 
         private void writeQName(javax.xml.namespace.QName qname,
-                javax.xml.stream.XMLStreamWriter xmlWriter)
+                                javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
             java.lang.String namespaceURI = qname.getNamespaceURI();
             if (namespaceURI != null) {
@@ -2819,7 +2960,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
                     xmlWriter.writeCharacters(prefix
                             + ":"
                             + org.apache.axis2.databinding.utils.ConverterUtil
-                                    .convertToString(qname));
+                            .convertToString(qname));
                 } else {
                     // i.e this is the default namespace
                     xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil
@@ -2833,7 +2974,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
         }
 
         private void writeQNames(javax.xml.namespace.QName[] qnames,
-                javax.xml.stream.XMLStreamWriter xmlWriter)
+                                 javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
 
             if (qnames != null) {
@@ -2881,7 +3022,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          * Register a namespace prefix
          */
         private java.lang.String registerPrefix(javax.xml.stream.XMLStreamWriter xmlWriter,
-                java.lang.String namespace) throws javax.xml.stream.XMLStreamException {
+                                                java.lang.String namespace) throws javax.xml.stream.XMLStreamException {
             java.lang.String prefix = xmlWriter.getPrefix(namespace);
             if (prefix == null) {
                 prefix = generatePrefix(namespace);
@@ -3042,7 +3183,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
 
         /**
          * Auto generated getter method
-         * 
+         *
          * @return NfeCabecMsg
          */
         public NfeCabecMsg getNfeCabecMsg() {
@@ -3051,7 +3192,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
 
         /**
          * Auto generated setter method
-         * 
+         *
          * @param param
          *            NfeCabecMsg
          */
@@ -3079,16 +3220,14 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
         }
 
         public void serialize(final javax.xml.namespace.QName parentQName,
-                javax.xml.stream.XMLStreamWriter xmlWriter)
-                throws javax.xml.stream.XMLStreamException,
-                org.apache.axis2.databinding.ADBException {
+                              javax.xml.stream.XMLStreamWriter xmlWriter)
+                throws javax.xml.stream.XMLStreamException {
             serialize(parentQName, xmlWriter, false);
         }
 
         public void serialize(final javax.xml.namespace.QName parentQName,
-                javax.xml.stream.XMLStreamWriter xmlWriter, boolean serializeType)
-                throws javax.xml.stream.XMLStreamException,
-                org.apache.axis2.databinding.ADBException {
+                              javax.xml.stream.XMLStreamWriter xmlWriter, boolean serializeType)
+                throws javax.xml.stream.XMLStreamException {
 
             // We can safely assume an element has only one type associated with
             // it
@@ -3111,7 +3250,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          * Utility method to write an element start tag.
          */
         private void writeStartElement(java.lang.String prefix, java.lang.String namespace,
-                java.lang.String localPart, javax.xml.stream.XMLStreamWriter xmlWriter)
+                                       java.lang.String localPart, javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
             java.lang.String writerPrefix = xmlWriter.getPrefix(namespace);
             if (writerPrefix != null) {
@@ -3133,8 +3272,8 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          * Util method to write an attribute with the ns prefix
          */
         private void writeAttribute(java.lang.String prefix, java.lang.String namespace,
-                java.lang.String attName, java.lang.String attValue,
-                javax.xml.stream.XMLStreamWriter xmlWriter)
+                                    java.lang.String attName, java.lang.String attValue,
+                                    javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
             if (xmlWriter.getPrefix(namespace) == null) {
                 xmlWriter.writeNamespace(prefix, namespace);
@@ -3147,7 +3286,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          * Util method to write an attribute without the ns prefix
          */
         private void writeAttribute(java.lang.String namespace, java.lang.String attName,
-                java.lang.String attValue, javax.xml.stream.XMLStreamWriter xmlWriter)
+                                    java.lang.String attValue, javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
             if (namespace.equals("")) {
                 xmlWriter.writeAttribute(attName, attValue);
@@ -3161,7 +3300,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          * Util method to write an attribute without the ns prefix
          */
         private void writeQNameAttribute(java.lang.String namespace, java.lang.String attName,
-                javax.xml.namespace.QName qname, javax.xml.stream.XMLStreamWriter xmlWriter)
+                                         javax.xml.namespace.QName qname, javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
 
             java.lang.String attributeNamespace = qname.getNamespaceURI();
@@ -3189,7 +3328,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          */
 
         private void writeQName(javax.xml.namespace.QName qname,
-                javax.xml.stream.XMLStreamWriter xmlWriter)
+                                javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
             java.lang.String namespaceURI = qname.getNamespaceURI();
             if (namespaceURI != null) {
@@ -3204,7 +3343,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
                     xmlWriter.writeCharacters(prefix
                             + ":"
                             + org.apache.axis2.databinding.utils.ConverterUtil
-                                    .convertToString(qname));
+                            .convertToString(qname));
                 } else {
                     // i.e this is the default namespace
                     xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil
@@ -3218,7 +3357,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
         }
 
         private void writeQNames(javax.xml.namespace.QName[] qnames,
-                javax.xml.stream.XMLStreamWriter xmlWriter)
+                                 javax.xml.stream.XMLStreamWriter xmlWriter)
                 throws javax.xml.stream.XMLStreamException {
 
             if (qnames != null) {
@@ -3266,7 +3405,7 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
          * Register a namespace prefix
          */
         private java.lang.String registerPrefix(javax.xml.stream.XMLStreamWriter xmlWriter,
-                java.lang.String namespace) throws javax.xml.stream.XMLStreamException {
+                                                java.lang.String namespace) throws javax.xml.stream.XMLStreamException {
             java.lang.String prefix = xmlWriter.getPrefix(namespace);
             if (prefix == null) {
                 prefix = generatePrefix(namespace);
@@ -3335,8 +3474,8 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
 
                             if (reader.isStartElement()
                                     && new javax.xml.namespace.QName(
-                                            "http://www.portalfiscal.inf.br/nfe/wsdl/NfeAutorizacao",
-                                            "nfeCabecMsg").equals(reader.getName())) {
+                                    "http://www.portalfiscal.inf.br/nfe/wsdl/NfeAutorizacao",
+                                    "nfeCabecMsg").equals(reader.getName())) {
 
                                 object.setNfeCabecMsg(NfeCabecMsg.Factory.parse(reader));
 
@@ -3363,179 +3502,6 @@ public class NfeAutorizacaoStub extends org.apache.axis2.client.Stub {
 
         }// end of factory class
 
-    }
-
-    private org.apache.axiom.om.OMElement toOM(NfeAutorizacaoStub.NfeDadosMsgZip param,
-            boolean optimizeContent) throws org.apache.axis2.AxisFault {
-
-        try {
-            return param.getOMElement(NfeAutorizacaoStub.NfeDadosMsgZip.MY_QNAME,
-                    org.apache.axiom.om.OMAbstractFactory.getOMFactory());
-        } catch (org.apache.axis2.databinding.ADBException e) {
-            throw org.apache.axis2.AxisFault.makeFault(e);
-        }
-
-    }
-
-    private org.apache.axiom.om.OMElement toOM(
-            NfeAutorizacaoStub.NfeAutorizacaoLoteZipResult param, boolean optimizeContent)
-            throws org.apache.axis2.AxisFault {
-
-        try {
-            return param.getOMElement(NfeAutorizacaoStub.NfeAutorizacaoLoteZipResult.MY_QNAME,
-                    org.apache.axiom.om.OMAbstractFactory.getOMFactory());
-        } catch (org.apache.axis2.databinding.ADBException e) {
-            throw org.apache.axis2.AxisFault.makeFault(e);
-        }
-
-    }
-
-    private org.apache.axiom.om.OMElement toOM(NfeAutorizacaoStub.NfeCabecMsgE param,
-            boolean optimizeContent) throws org.apache.axis2.AxisFault {
-
-        try {
-            return param.getOMElement(NfeAutorizacaoStub.NfeCabecMsgE.MY_QNAME,
-                    org.apache.axiom.om.OMAbstractFactory.getOMFactory());
-        } catch (org.apache.axis2.databinding.ADBException e) {
-            throw org.apache.axis2.AxisFault.makeFault(e);
-        }
-
-    }
-
-    private org.apache.axiom.om.OMElement toOM(NfeAutorizacaoStub.NfeDadosMsg param,
-            boolean optimizeContent) throws org.apache.axis2.AxisFault {
-
-        try {
-            return param.getOMElement(NfeAutorizacaoStub.NfeDadosMsg.MY_QNAME,
-                    org.apache.axiom.om.OMAbstractFactory.getOMFactory());
-        } catch (org.apache.axis2.databinding.ADBException e) {
-            throw org.apache.axis2.AxisFault.makeFault(e);
-        }
-
-    }
-
-    private org.apache.axiom.om.OMElement toOM(NfeAutorizacaoStub.NfeAutorizacaoLoteResult param,
-            boolean optimizeContent) throws org.apache.axis2.AxisFault {
-
-        try {
-            return param.getOMElement(NfeAutorizacaoStub.NfeAutorizacaoLoteResult.MY_QNAME,
-                    org.apache.axiom.om.OMAbstractFactory.getOMFactory());
-        } catch (org.apache.axis2.databinding.ADBException e) {
-            throw org.apache.axis2.AxisFault.makeFault(e);
-        }
-
-    }
-
-    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(
-            org.apache.axiom.soap.SOAPFactory factory, NfeAutorizacaoStub.NfeDadosMsgZip param,
-            boolean optimizeContent, javax.xml.namespace.QName methodQName)
-            throws org.apache.axis2.AxisFault {
-
-        try {
-
-            org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
-            emptyEnvelope.getBody().addChild(
-                    param.getOMElement(NfeAutorizacaoStub.NfeDadosMsgZip.MY_QNAME, factory));
-            return emptyEnvelope;
-        } catch (org.apache.axis2.databinding.ADBException e) {
-            throw org.apache.axis2.AxisFault.makeFault(e);
-        }
-
-    }
-
-    /* methods to provide back word compatibility */
-
-    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(
-            org.apache.axiom.soap.SOAPFactory factory, NfeAutorizacaoStub.NfeDadosMsg param,
-            boolean optimizeContent, javax.xml.namespace.QName methodQName)
-            throws org.apache.axis2.AxisFault {
-
-        try {
-
-            org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
-            emptyEnvelope.getBody().addChild(
-                    param.getOMElement(NfeAutorizacaoStub.NfeDadosMsg.MY_QNAME, factory));
-            return emptyEnvelope;
-        } catch (org.apache.axis2.databinding.ADBException e) {
-            throw org.apache.axis2.AxisFault.makeFault(e);
-        }
-
-    }
-
-    /* methods to provide back word compatibility */
-
-    /**
-     * get the default envelope
-     */
-    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory) {
-        return factory.getDefaultEnvelope();
-    }
-
-    private java.lang.Object fromOM(org.apache.axiom.om.OMElement param, java.lang.Class type,
-            java.util.Map extraNamespaces) throws org.apache.axis2.AxisFault {
-
-        try {
-
-            if (NfeAutorizacaoStub.NfeDadosMsgZip.class.equals(type)) {
-
-                return NfeAutorizacaoStub.NfeDadosMsgZip.Factory.parse(param
-                        .getXMLStreamReaderWithoutCaching());
-
-            }
-
-            if (NfeAutorizacaoStub.NfeAutorizacaoLoteZipResult.class.equals(type)) {
-
-                return NfeAutorizacaoStub.NfeAutorizacaoLoteZipResult.Factory.parse(param
-                        .getXMLStreamReaderWithoutCaching());
-
-            }
-
-            if (NfeAutorizacaoStub.NfeCabecMsgE.class.equals(type)) {
-
-                return NfeAutorizacaoStub.NfeCabecMsgE.Factory.parse(param
-                        .getXMLStreamReaderWithoutCaching());
-
-            }
-
-            if (NfeAutorizacaoStub.NfeCabecMsgE.class.equals(type)) {
-
-                return NfeAutorizacaoStub.NfeCabecMsgE.Factory.parse(param
-                        .getXMLStreamReaderWithoutCaching());
-
-            }
-
-            if (NfeAutorizacaoStub.NfeDadosMsg.class.equals(type)) {
-
-                return NfeAutorizacaoStub.NfeDadosMsg.Factory.parse(param
-                        .getXMLStreamReaderWithoutCaching());
-
-            }
-
-            if (NfeAutorizacaoStub.NfeAutorizacaoLoteResult.class.equals(type)) {
-
-                return NfeAutorizacaoStub.NfeAutorizacaoLoteResult.Factory.parse(param
-                        .getXMLStreamReaderWithoutCaching());
-
-            }
-
-            if (NfeAutorizacaoStub.NfeCabecMsgE.class.equals(type)) {
-
-                return NfeAutorizacaoStub.NfeCabecMsgE.Factory.parse(param
-                        .getXMLStreamReaderWithoutCaching());
-
-            }
-
-            if (NfeAutorizacaoStub.NfeCabecMsgE.class.equals(type)) {
-
-                return NfeAutorizacaoStub.NfeCabecMsgE.Factory.parse(param
-                        .getXMLStreamReaderWithoutCaching());
-
-            }
-
-        } catch (java.lang.Exception e) {
-            throw org.apache.axis2.AxisFault.makeFault(e);
-        }
-        return null;
     }
 
 }

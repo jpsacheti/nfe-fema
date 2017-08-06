@@ -1,3 +1,16 @@
+/*
+ * Copyright 2017 João Pedro Sacheti
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License athttp://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 //
 // Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
 // Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
@@ -8,24 +21,18 @@
 
 package br.edu.fema.nfe.xml;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlID;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
  * Tipo Protocolo de status resultado do processamento da NF-e
- * 
+ *
  * <p>Classe Java de TProtNFe complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="TProtNFe">
  *   &lt;complexContent>
@@ -57,12 +64,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TProtNFe", propOrder = {
-    "infProt"
+        "infProt"
 })
 public class TProtNFe {
 
@@ -73,11 +80,11 @@ public class TProtNFe {
 
     /**
      * Obtém o valor da propriedade infProt.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link TProtNFe.InfProt }
-     *     
+     *
      */
     public TProtNFe.InfProt getInfProt() {
         return infProt;
@@ -85,11 +92,11 @@ public class TProtNFe {
 
     /**
      * Define o valor da propriedade infProt.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link TProtNFe.InfProt }
-     *     
+     *
      */
     public void setInfProt(TProtNFe.InfProt value) {
         this.infProt = value;
@@ -97,11 +104,11 @@ public class TProtNFe {
 
     /**
      * Obtém o valor da propriedade versao.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getVersao() {
         return versao;
@@ -109,11 +116,11 @@ public class TProtNFe {
 
     /**
      * Define o valor da propriedade versao.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setVersao(String value) {
         this.versao = value;
@@ -122,9 +129,9 @@ public class TProtNFe {
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -144,19 +151,19 @@ public class TProtNFe {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
+     *
+     *
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "tpAmb",
-        "verAplic",
-        "chNFe",
-        "dhRecbto",
-        "nProt",
-        "digVal",
-        "cStat",
-        "xMotivo"
+            "tpAmb",
+            "verAplic",
+            "chNFe",
+            "dhRecbto",
+            "nProt",
+            "digVal",
+            "cStat",
+            "xMotivo"
     })
     public static class InfProt {
 
@@ -182,11 +189,11 @@ public class TProtNFe {
 
         /**
          * Obtém o valor da propriedade tpAmb.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link String }
-         *     
+         *
          */
         public String getTpAmb() {
             return tpAmb;
@@ -194,11 +201,11 @@ public class TProtNFe {
 
         /**
          * Define o valor da propriedade tpAmb.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link String }
-         *     
+         *
          */
         public void setTpAmb(String value) {
             this.tpAmb = value;
@@ -206,11 +213,11 @@ public class TProtNFe {
 
         /**
          * Obtém o valor da propriedade verAplic.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link String }
-         *     
+         *
          */
         public String getVerAplic() {
             return verAplic;
@@ -218,11 +225,11 @@ public class TProtNFe {
 
         /**
          * Define o valor da propriedade verAplic.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link String }
-         *     
+         *
          */
         public void setVerAplic(String value) {
             this.verAplic = value;
@@ -230,11 +237,11 @@ public class TProtNFe {
 
         /**
          * Obtém o valor da propriedade chNFe.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link String }
-         *     
+         *
          */
         public String getChNFe() {
             return chNFe;
@@ -242,11 +249,11 @@ public class TProtNFe {
 
         /**
          * Define o valor da propriedade chNFe.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link String }
-         *     
+         *
          */
         public void setChNFe(String value) {
             this.chNFe = value;
@@ -254,11 +261,11 @@ public class TProtNFe {
 
         /**
          * Obtém o valor da propriedade dhRecbto.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link String }
-         *     
+         *
          */
         public String getDhRecbto() {
             return dhRecbto;
@@ -266,11 +273,11 @@ public class TProtNFe {
 
         /**
          * Define o valor da propriedade dhRecbto.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link String }
-         *     
+         *
          */
         public void setDhRecbto(String value) {
             this.dhRecbto = value;
@@ -278,11 +285,11 @@ public class TProtNFe {
 
         /**
          * Obtém o valor da propriedade nProt.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link String }
-         *     
+         *
          */
         public String getNProt() {
             return nProt;
@@ -290,11 +297,11 @@ public class TProtNFe {
 
         /**
          * Define o valor da propriedade nProt.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link String }
-         *     
+         *
          */
         public void setNProt(String value) {
             this.nProt = value;
@@ -302,7 +309,7 @@ public class TProtNFe {
 
         /**
          * Obtém o valor da propriedade digVal.
-         * 
+         *
          * @return
          *     possible object is
          *     byte[]
@@ -313,7 +320,7 @@ public class TProtNFe {
 
         /**
          * Define o valor da propriedade digVal.
-         * 
+         *
          * @param value
          *     allowed object is
          *     byte[]
@@ -324,11 +331,11 @@ public class TProtNFe {
 
         /**
          * Obtém o valor da propriedade cStat.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link String }
-         *     
+         *
          */
         public String getCStat() {
             return cStat;
@@ -336,11 +343,11 @@ public class TProtNFe {
 
         /**
          * Define o valor da propriedade cStat.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link String }
-         *     
+         *
          */
         public void setCStat(String value) {
             this.cStat = value;
@@ -348,11 +355,11 @@ public class TProtNFe {
 
         /**
          * Obtém o valor da propriedade xMotivo.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link String }
-         *     
+         *
          */
         public String getXMotivo() {
             return xMotivo;
@@ -360,11 +367,11 @@ public class TProtNFe {
 
         /**
          * Define o valor da propriedade xMotivo.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link String }
-         *     
+         *
          */
         public void setXMotivo(String value) {
             this.xMotivo = value;
@@ -372,11 +379,11 @@ public class TProtNFe {
 
         /**
          * Obtém o valor da propriedade id.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link String }
-         *     
+         *
          */
         public String getId() {
             return id;
@@ -384,11 +391,11 @@ public class TProtNFe {
 
         /**
          * Define o valor da propriedade id.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link String }
-         *     
+         *
          */
         public void setId(String value) {
             this.id = value;
