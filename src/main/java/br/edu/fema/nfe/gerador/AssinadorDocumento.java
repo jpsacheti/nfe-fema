@@ -47,6 +47,17 @@ import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
 
+/**
+ * Classe responsável pela assinatura digital da nota fiscal eletrônica.
+ * O processo é divido em várias etapas:
+ * 1. Normalização
+ * 2. Canonicalização
+ * 3. Aplicação de transforms
+ * 4. Geração do digest do elemento infNFe
+ * 5. Cálculo da assinatura usando chave privada do certificado do contribuinte
+ * 6. Conversão para base64
+ * 7. Inclusão do fragmento XML com a assinatura no arquivo XML
+ */
 public class AssinadorDocumento {
     private final static XMLSignatureFactory signatureFactory = XMLSignatureFactory.getInstance("DOM");
     private static PrivateKey privateKey;

@@ -20,6 +20,14 @@ import java.sql.SQLException;
 import java.sql.SQLXML;
 
 public class NFeDao {
+    /**
+     * Exemplificação do processo de armazenamento em banco de dados de uma Nota Fiscal eletrônica
+     * que foi autorizada com sucesso, bem como quais campo são importantes para serem persistidos numa
+     * aplicação real
+     *
+     * @param notaFiscal a ser persistida
+     * @throws SQLException caso haja problemas no banco de dados
+     */
     public void salvar(NotaFiscal notaFiscal) throws SQLException{
         String sql = "INSERT INTO notafiscal(xmlnota, xmlautorizacao, chavenfe, datahoraemissao) VALUES  (?, ?, ?, ?)";
         PreparedStatement ps = Conexao.getConnection().prepareStatement(sql);

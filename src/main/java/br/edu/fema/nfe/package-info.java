@@ -10,16 +10,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-package br.edu.fema.nfe.util;
-
-import java.security.KeyStore;
-
 /**
- * Interface responsável por carregar os dois tipos de certificado digital
- * A1: Arquivo PFX
- * A3: Cartão/Token
+ * Classe base do projeto de exemplo da NFe. O uso de interfaces é aplicado em grande parte
+ * dos exemplos e é encorajado, já que os leiautes e processos de emissão variam constantemente
+ * além de ser uma boa prática de programação.
+ *
+ * @author joao
  */
-public interface KeyStoreLoader {
-    KeyStore load(char[] senha) throws Exception;
-}
+package br.edu.fema.nfe;

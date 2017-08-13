@@ -17,10 +17,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/**
- * Created by joao on 16/07/17.
- */
-
 public class Conexao {
 
     private static Connection connection;

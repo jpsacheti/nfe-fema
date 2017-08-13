@@ -10,10 +10,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-package br.edu.fema.nfe.result;
-
-public interface ProcessadorResultado {
-
-    void processar();
-}
+/**
+ * Classes de serviço geradas pelo Apache Axis. Não mexa. Para mais informações, consulte:
+ * http://axis.apache.org/axis/java/user-guide.html
+ */
+package br.edu.fema.nfe.ws;

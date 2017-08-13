@@ -25,6 +25,13 @@ public class CertificadoA1Loader implements KeyStoreLoader {
         this.stream = Objects.requireNonNull(stream);
     }
 
+    /**
+     * Carregamento do certificado do tipo A1
+     *
+     * @param senha do certificado
+     * @return um keystore com as chaves e informações do certificado
+     * @throws Exception caso não seja possível carregar o certificado
+     */
     @Override
     public KeyStore load(char[] senha) throws Exception {
         KeyStore keyStore = KeyStore.getInstance("pkcs12");

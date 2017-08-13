@@ -20,6 +20,11 @@ import java.security.MessageDigest;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 
+/**
+ * Essa classe gera um arquivo chamado NFeCacerts contendo todos os
+ * certificados SSL dos servidores da secretaria da fazenda, sendo necessário vincular
+ * tal arquivo na JVM para que a conexão SSL possa ocorrer sem erros.
+ */
 public class GeradorCacerts {
 
     private static final String JSSECACERTS = "NFeCacerts";

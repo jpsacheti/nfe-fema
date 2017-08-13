@@ -13,7 +13,19 @@
 
 package br.edu.fema.nfe.emissao;
 
-
+/**
+ * Interface base para criar classes que façam a comunicação com o Webservice
+ * da Secretaria da Fazenda
+ */
 public interface Emissor {
+    /**
+     * Método responsável por instanciar o stub (classe de comunicação gerada pelo AXIS)
+     * passar os parâmetros e realizar o envio via HTTPS para os servidores da Sefaz
+     * autorizadora. É importante que os {@link br.edu.fema.nfe.util.GeradorCacerts} tenham sido gerados
+     *
+     * @param documento de autorização a ser enviado
+     * @return o XML com o resultado da resposta
+     * @throws Exception
+     */
     String emitir(String documento) throws Exception;
 }

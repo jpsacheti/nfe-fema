@@ -15,6 +15,11 @@ package br.edu.fema.nfe.model;
 
 import java.time.LocalDateTime;
 
+/**
+ * Business Object da Nota Fiscal eletrônica, contendo apenas os campos básicos e essenciais
+ * que devem ser armazenados pelo contribuinte. O arquivo que gera uma tabela no banco de dados
+ * correspondente a esta entidade se encontra no projeto
+ */
 public class NotaFiscal {
     private LocalDateTime dataHoraEmissao;
     private String chaveNfe;

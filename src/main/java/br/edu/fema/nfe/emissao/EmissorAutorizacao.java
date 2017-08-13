@@ -25,6 +25,7 @@ import org.apache.axis2.AxisFault;
 public class EmissorAutorizacao implements Emissor {
 
     private static final String VERSAO_WS = "3.10";
+    private static final String CODIGO_UF_SAO_PAULO = "35";
     private final NfeAutorizacaoStub stub;
 
     EmissorAutorizacao() throws AxisFault {
@@ -34,15 +35,17 @@ public class EmissorAutorizacao implements Emissor {
     @Override
     public String emitir(String documento) throws Exception {
         NfeDadosMsg dadosMsg = new NfeDadosMsg();
-        OMElement ome = AXIOMUtil.stringToOM(documento);
+        OMElement ome = AXIOMUtil.stringToOM(documento); //Conversao da String para o tipo suportado pelo AXIS
 
         dadosMsg.setExtraElement(ome);
         NfeCabecMsg dadosCabecalho = new NfeCabecMsg();
-        dadosCabecalho.setCUF("35");
+        dadosCabecalho.setCUF(CODIGO_UF_SAO_PAULO);
         dadosCabecalho.setVersaoDados(VERSAO_WS);
         NfeCabecMsgE cabecalho = new NfeCabecMsgE();
         cabecalho.setNfeCabecMsg(dadosCabecalho);
+        //Envio da nota para a Sefaz autorizadora
         NfeAutorizacaoLoteResult result = stub.nfeAutorizacaoLote(dadosMsg, cabecalho);
+        //Coleta do resultado
         return result.getExtraElement().toString();
     }
 

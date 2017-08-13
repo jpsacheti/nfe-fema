@@ -28,7 +28,11 @@ import java.io.StringReader;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+/**
+ * Classe que orquestra  o procedimento envolvido no envio e processamento da NFe
+ */
 public class ProcessadorEnvioNFe {
+    //Senhas de certificado digital sempre deverão ser armazenadas em memória por um vetor de char
     private final char[] senhaCertificado;
     private KeyStoreLoader keyStoreLoader;
 
@@ -37,6 +41,11 @@ public class ProcessadorEnvioNFe {
         this.senhaCertificado = senhaCertificado;
     }
 
+    /**
+     * Método público para envio da NFe, validação e gravação no banco de dados
+     *
+     * @throws Exception caso haja qualquer tipo de erro
+     */
     public void processar() throws Exception {
         Emissor emissor = new EmissorAutorizacao();
         NotaFiscal nf = new NotaFiscal();
@@ -51,14 +60,27 @@ public class ProcessadorEnvioNFe {
         new NFeDao().salvar(nf);
     }
 
+    /**
+     * Invoca o JAXB para fazer o parse do resultado
+     * @param saidaWs
+     * @return O objeto contendo a resposta do servidor da Sefaz
+     * @throws JAXBException
+     */
     private TRetEnviNFe getResultadoSaida(String saidaWs) throws JAXBException {
         JAXBContext context = JAXBContext.newInstance(TRetEnviNFe.class);
         Unmarshaller unmarshaller = context.createUnmarshaller();
         return unmarshaller.unmarshal(new StreamSource(new StringReader(saidaWs)), TRetEnviNFe.class).getValue();
     }
 
+    /**
+     * Tenta extrair a chave da resposta da SEFAZ e vincula ao BO.
+     * @param nf nota na qual será vinculada a chave
+     * @param resultado vindo do webservice da secretaria da fazenda
+     * @throws IllegalStateException caso a nota não tenha sido autorizada
+     */
     private void processarResultado(NotaFiscal nf, TRetEnviNFe resultado) {
-        if (Objects.equals(resultado.getProtNFe().getInfProt().getCStat(), "100")) {
+        final String CODIGO_AUTORIZACAO_NFE = "100";
+        if (Objects.equals(resultado.getProtNFe().getInfProt().getCStat(), CODIGO_AUTORIZACAO_NFE)) {
             nf.setChaveNfe(resultado.getProtNFe().getInfProt().getChNFe());
         } else {
             throw new IllegalStateException("NFe não autorizada!");

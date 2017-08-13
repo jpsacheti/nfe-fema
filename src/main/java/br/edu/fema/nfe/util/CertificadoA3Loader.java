@@ -24,6 +24,10 @@ public class CertificadoA3Loader implements KeyStoreLoader {
     private KeyStore keyStore;
 
     @SuppressWarnings("restriction")
+    /**
+     * Certificados A3 utilizam uma API obscura do Java para acessar a chave privada
+     * do certficado. É preciso registrar tal api na JVM para que ela possa ser utilizada
+     */
     public CertificadoA3Loader() throws KeyStoreException {
         Provider provider;
         provider = new sun.security.pkcs11.SunPKCS11(getStreamConfig());
@@ -38,7 +42,7 @@ public class CertificadoA3Loader implements KeyStoreLoader {
         sb.append("showInfo = true");
         sb.append("\n");
         sb.append("library = ");
-        sb.append("caminho_para_dll_Cartao");
+        sb.append("caminho_para_dll_Cartao"); //Substituir com a DLL driver do cartão
         return new ByteArrayInputStream(sb.toString().getBytes());
     }
 
