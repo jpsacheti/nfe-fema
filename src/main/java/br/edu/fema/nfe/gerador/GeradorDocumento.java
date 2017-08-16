@@ -26,6 +26,7 @@ import java.io.StringWriter;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 
 import static br.edu.fema.nfe.util.Uteis.extrairNumeros;
 import static br.edu.fema.nfe.util.Uteis.normalizar;
@@ -33,6 +34,9 @@ import static br.edu.fema.nfe.util.Uteis.normalizar;
 public class GeradorDocumento {
 
     private static final String VERSAO_NFE = "3.10";
+    private static final DateTimeFormatter patternFormat = new DateTimeFormatterBuilder()
+            .appendPattern("yyyy-MM-dd'T'HH:mm:ss").appendOffsetId()
+            .toFormatter();
 
     public String gerarDocumento() throws Exception {
         StringWriter sw = new StringWriter();
@@ -75,9 +79,9 @@ public class GeradorDocumento {
         ide.setCNF("00000001");
         ide.setNatOp("venda");
         ide.setIndPag("1");
-        ide.setNNF("000000001");
-        ide.setDhEmi(ZonedDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
-        ide.setDhSaiEnt(ZonedDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+        ide.setNNF("1");
+        ide.setDhEmi(ZonedDateTime.now().format(patternFormat));
+        ide.setDhSaiEnt(ZonedDateTime.now().format(patternFormat));
         ide.setTpNF("1");
         ide.setIdDest("1");
         ide.setCMunFG("351000");
@@ -91,7 +95,7 @@ public class GeradorDocumento {
         ide.setMod("55");
         ide.setProcEmi("0");
         ide.setIdDest("1");
-        ide.setSerie("001");
+        ide.setSerie("1");
         ide.setVerProc("1.00");
         return ide;
     }
@@ -99,7 +103,8 @@ public class GeradorDocumento {
     private void adicionarDadosDuplicata(TNFe.InfNFe infNfe) {
         TNFe.InfNFe.Cobr cobr = new TNFe.InfNFe.Cobr();
         TNFe.InfNFe.Cobr.Dup dup = new TNFe.InfNFe.Cobr.Dup();
-        dup.setDVenc(LocalDate.now().format(DateTimeFormatter.ISO_DATE));
+        DateTimeFormatterBuilder b = new DateTimeFormatterBuilder();
+        dup.setDVenc(LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         dup.setNDup("1");
         dup.setVDup("30.00");
         cobr.getDup().add(dup);
@@ -242,9 +247,8 @@ public class GeradorDocumento {
     private TNFe.InfNFe.Dest adicionarDadosDest() throws Exception {
         TNFe.InfNFe.Dest dest = new TNFe.InfNFe.Dest();
         dest.setCNPJ(extrairNumeros("36.165.203/0001-85"));
-        dest.setXNome(normalizar("Enzo e Rebeca Pizzaria Delivery ME", 60));
-        dest.setIE(extrairNumeros("158.417.703.691"));
-        dest.setIndIEDest("1");
+        dest.setXNome("NF-E EMITIDA EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL");
+        dest.setIndIEDest("9");
         dest.setEnderDest(getEnderDest());
         return dest;
     }
